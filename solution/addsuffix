@@ -1,0 +1,14 @@
+first=1
+for i in "$@"; do
+	if [ $first = 1 ]; then
+		first=0
+	else
+		if [ -d "$i" ]; then
+			mv "$i" "$i$1"
+		else
+			for j in "$(ls "$i")"; do
+				mv "$j" "$j""$1"
+			done
+		fi
+	fi
+done
