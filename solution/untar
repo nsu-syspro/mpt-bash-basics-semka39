@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+NAME="${*}"
+DIR="${NAME}.unpacked"
+if [ ! -d "${DIR}" ]; then
+	mkdir "${DIR}"
+fi
+tar -xf "${NAME}" -C "${DIR}"
+

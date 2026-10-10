@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+first=1
+for i in "$@"; do
+	if [ $first = 1 ]; then
+		first=0
+	else
+		if [ -d "$i" ]; then
+			mv "$i" "$i$1"
+		else
+			mv "$i" "$i""$1"
+		fi
+	fi
+done
